@@ -1,0 +1,87 @@
+// Importar módulos de Firebase
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js';
+import { getFirestore, collection, getDocs, deleteDoc, doc, writeBatch } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js';
+import { getStorage, ref, getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js';
+
+// Configuración de Firebase
+const firebaseConfig = {
+    apiKey: "AIzaSyB2YHOPydtFOFn5Sr3PXNp6H-6TM0p3Urc",
+    authDomain: "tramitesvisa-itzel.firebaseapp.com",
+    projectId: "tramitesvisa-itzel",
+    storageBucket: "tramitesvisa-itzel.appspot.com",
+    messagingSenderId: "356859229057",
+    appId: "1:356859229057:web:ab3b905aaacfa2d2b86e80"
+};
+
+// Inicializa Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const storage = getStorage(app);
+
+// Función para cargar los datos del formulario desde Firebase Firestore
+async function loadFormData() {
+    // Obtiene todos los documentos de la colección 'formularios'
+    const querySnapshot = await getDocs(collection(db, 'formularios'));
+    const tableBody = document.getElementById('formTable').getElementsByTagName('tbody')[0];
+    tableBody.innerHTML = '';  // Limpia el contenido de la tabla
+    let totalRecords = 0;
+
+    // Itera sobre cada documento de Firestore
+    querySnapshot.forEach(async (doc) => {
+        const data = doc.data();
+        const row = tableBody.insertRow();  // Inserta una nueva fila en la tabla
+
+        // Añade celdas con los datos del documento
+        row.insertCell(0).textContent = data.nombre || '';
+        row.insertCell(1).textContent = data.correo || '';
+        row.insertCell(2).textContent = data.telefono || '';
+        row.insertCell(3).textContent = data.tipo_solicitud || '';
+        row.insertCell(4).textContent = data.fecha_ultimavisita_usa || '';
+        row.insertCell(5).textContent = data.duracion_en_usa || '';
+        row.insertCell(6).textContent = data.cantidad_dias_meses || '';
+
+        // Manejo de foto
+        const fotoCell = row.insertCell(7);
+        if (data.fotoURL) {
+            try {
+                const fotoRef = ref(storage, data.fotoURL);
+                const fotoURL = await getDownloadURL(fotoRef);
+                const fotoLink = document.createElement('a');
+                fotoLink.href = fotoURL;
+                fotoLink.textContent = 'Ver Foto';
+                fotoLink.target = '_blank';
+                fotoCell.appendChild(fotoLink);
+            } catch (error) {
+                fotoCell.textContent = 'No disponible';
+                console.error('Error al obtener la URL de la foto:', error);
+            }
+        } else {
+            fotoCell.textContent = 'No disponible';
+        }
+
+        // Manejo de archivo
+        const archivoCell = row.insertCell(8);
+        if (data.archivoURL) {
+            try {
+                const archivoRef = ref(storage, data.archivoURL);
+                const archivoURL = await getDownloadURL(archivoRef);
+                const archivoLink = document.createElement('a');
+                archivoLink.href = archivoURL;
+                archivoLink.textContent = 'Descargar Archivo';
+                archivoLink.target = '_blank';
+                archivoCell.appendChild(archivoLink);
+            } catch (error) {
+                archivoCell.textContent = 'No disponible';
+                console.error('Error al obtener la URL del archivo:', error);
+            }
+        } else {
+            archivoCell.textContent = 'No disponible';
+        }
+
+        totalRecords++;
+        document.getElementById('totalRegistros').textContent = totalRecords;
+    });
+
+    // Ordenar datos por fecha de última visita
+    sortTable();
+}

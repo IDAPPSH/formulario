@@ -1,0 +1,641 @@
+/* Estilo básico para el cuerpo */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #edeef1;
+    color: rgb(128, 125, 125);
+}
+.seleccion{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 90%;
+    max-width: 700px;
+    margin: 20px auto;
+    background: rgba(18, 81, 230, 0.218);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+
+}
+/* Select dentro de la sección */
+.seleccion select {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 90%;
+    max-width: 700px;
+    margin: 20px auto;
+    background: rgb(203, 228, 222);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.502);
+}
+
+/* Contenedor principal */
+#dataForm {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 90%;
+    max-width: 700px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+}
+
+.section_renovacion{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 90%;
+    max-width: 700px;
+    margin: 20px auto;
+    background: rgb(194, 193, 193);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+
+
+}
+.section_casado{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 90%;
+    max-width: 700px;
+    margin: 20px auto;
+    background: rgb(194, 193, 193);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+
+}
+.section_divorciado{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 90%;
+    max-width: 700px;
+    margin: 20px auto;
+    background: rgb(194, 193, 193);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+
+}
+.section_union_libre{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 90%;
+    max-width: 700px;
+    margin: 20px auto;
+    background: rgb(194, 193, 193);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+
+}
+.section_tiene_familiares_estados_unidos_si{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 90%;
+    max-width: 700px;
+    margin: 20px auto;
+    background: rgb(194, 193, 193);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+
+}
+.section_tramitaron_visa_antes_si{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 90%;
+    max-width: 700px;
+    margin: 20px auto;
+    background: rgb(194, 193, 193);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+
+}
+.han_visitado_estados_unidos_si{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 90%;
+    max-width: 700px;
+    margin: 20px auto;
+    background: rgb(194, 193, 193);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+
+}
+.han_viajado_extranjero_últimos_cinco_años_si{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 90%;
+    max-width: 700px;
+    margin: 20px auto;
+    background: rgb(194, 193, 193);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+
+}
+.han_viajado_extranjero_últimos_cinco_años_si{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 90%;
+    max-width: 700px;
+    margin: 20px auto;
+    background: rgb(194, 193, 193);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+
+}
+/* Encabezados */
+h1 {
+    text-align: center;
+    color: #0056b3;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+h1::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #0056b3;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+h2 {
+    color: #007bff;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #007bff;
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+}
+
+h3 {
+    color: #333;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+h3::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: #333;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+/* Sección de etiquetas y campos de entrada */
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Estilo para campos de entrada */
+input[type="text"],
+input[type="file"],
+input[type="date"],
+input[type="number"],
+input[type="tel"],
+textarea,
+select {
+    width: calc(100% - 20px);
+    padding: 14px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    box-sizing: border-box;
+}
+
+/* Estilo para select */
+select {
+    max-width: 100%;
+}
+
+/* Efecto de hover */
+input[type="text"]:hover,
+input[type="file"]:hover,
+input[type="date"]:hover,
+input[type="number"]:hover,
+input[type="tel"]:hover,
+textarea:hover,
+select:hover {
+    border-color: #0056b3;
+    background-color: #f0f8ff;
+}
+
+/* Efecto de focus */
+input[type="text"]:focus,
+input[type="file"]:focus,
+input[type="date"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+textarea:focus,
+select:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 8px rgba(0, 86, 179, 0.5);
+    background-color: #eaf2ff;
+    outline: none;
+}
+
+/* Estilo de checkboxes y radios */
+.checkbox-group,
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.checkbox-group label,
+.radio-group label {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.checkbox-group input,
+.radio-group input {
+    margin-right: 5px;
+}
+
+.submit{
+    background-color: #037c28;
+    color: white;
+    padding: 14px 50px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    width: auto;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+
+}
+.submit:hover{
+    background-color: #0bda03;
+    transform: translateY(-2px);
+    color: rgb(6, 8, 8);
+    padding: 14px 14%;
+
+
+}
+/* Botones */
+button {
+    
+    background-color: #0056b3;
+    color: white;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    width: auto;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #004494;
+    transform: translateY(-2px);
+}
+
+button:active {
+    background-color: #003d80;
+    transform: translateY(0);
+}
+
+/* Sección de botones */
+.buttons {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 90%;
+    max-width: 700px;
+    margin: 5px auto;
+    background: rgba(253, 253, 253, 0);
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 6, 6, 0.317);
+    display: flex;
+    justify-content: center; /* Centra los botones */
+    gap: 50%; /* Espacio entre botones */
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    input[type="text"],
+    input[type="file"],
+    input[type="date"],
+    input[type="number"],
+    input[type="tel"],
+    textarea,
+    select {
+        font-size: 15px;
+        padding: 12px;
+    }
+
+    .buttons {
+        flex-direction: column;
+        align-items: center; /* Centra los botones verticalmente en pantallas pequeñas */
+    }
+
+    .buttons button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #dataForm {
+        width: 95%;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    input[type="text"],
+    input[type="file"],
+    input[type="date"],
+    input[type="number"],
+    input[type="tel"],
+    textarea,
+    select {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    button {
+        font-size: 15px;
+        padding: 12px 18px;
+    }
+
+    #dataForm {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .buttons {
+        align-items: center; /* Centra los botones verticalmente en pantallas pequeñas */
+    }
+
+    .buttons button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+.social-media {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.social-media .icons a {
+    margin: 0 10px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+}
+
+
+.social-media {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.social-media .icons a {
+    margin: 0 10px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 15px;
+}
+
+.footer-text {
+    text-align: right;
+    margin-right: 10px;
+}
+
+.footer-text p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    line-height: 1.4em;
+}
+
+.footer-text p:first-child {
+    font-weight: bold;
+}
+
+.footer-logo {
+    margin-left: 10px;
+}
+
+.logo-img {
+    height: 40px;
+    /* Ajusta el tamaño del logo según necesites */
+    width: auto;
+}
+
+/* Alineación en pantallas pequeñas */
+@media (max-width: 991px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-text {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .footer-logo {
+        margin-left: 0;
+    }
+}
+
+
+footer p {
+    margin: 5px 0;
+    font-size: .9em;
+}
+
+footer a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.copyright_text {
+    text-align: right;
+    font-size: 0.9em;
+    color: #bbb;
+    margin: 0;
+}
+
+.copyright_text a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.copyright_text a:hover {
+    color: #ddd;
+    text-decoration: underline;
+}
+
+/* Espaciado adecuado para dispositivos grandes */
+@media (min-width: 992px) {
+    .copyright_text {
+        padding-right: 15px;
+    }
+}
+
+/* Estilo en pantallas más pequeñas */
+@media (max-width: 991px) {
+    .copyright_text {
+        text-align: center;
+        padding: 10px 0;
+    }
+}
+
+
+footer {
+    background-color: rgb(11, 2, 2);
+    color: #fff;
+    padding: 0px 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.copyright_text {
+    text-align: right;
+    font-size: 0.9em;
+    color: #bbb;
+    margin: 0;
+    padding-right: 15px;
+    /* Espaciado a la derecha */
+}
+
+.copyright_text a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.copyright_text a:hover {
+    color: #ddd;
+    text-decoration: underline;
+}
+
+/* Asegura que el texto esté alineado a la derecha en pantallas grandes */
+@media (min-width: 992px) {
+    .copyright_text {
+        text-align: right;
+        padding-right: 15px;
+    }
+}
+
+/* Alinea el texto al centro en pantallas más pequeñas */
+@media (max-width: 991px) {
+    .copyright_text {
+        text-align: center;
+        padding: 10px 0;
+    }
+}

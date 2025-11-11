@@ -1,0 +1,153 @@
+
+
+
+
+
+
+
+
+
+body {
+    display: flex;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    width: 100%;
+    background-color: rgb(240, 225, 225);
+    padding: 20px;
+    box-shadow: 0 0 30px rgb(25, 110, 10);
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 3fr; /* Ajusta el ancho de las columnas según sea necesario */
+    gap: 20px;
+}
+
+.sidebar {
+    width: 100px;
+    height: 100vh;
+    background-color: #30425c;
+    padding: 15px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.sidebar button:hover {
+    background-color: #0056b3;
+    padding: 13px;
+}
+.content {
+    padding: 20px;
+    overflow-x: auto;
+    background: #fff; /* Ajusta el fondo si es necesario */
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el encabezado de la tabla */
+.table th {
+    background-color: rgb(18, 3, 3);
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 30px rgb(25, 110, 10);
+    background-size: cover;
+    background-position: center;
+    background-color: #343a40; /* Color de fondo oscuro para el encabezado */
+    color: #020101; /* Color del texto blanco para el encabezado */
+    font-size: 16px; /* Tamaño de fuente más grande para el encabezado */
+    font-weight: 700; /* Peso de fuente negrita para el encabezado */
+}
+
+.table th {
+    padding: 12px 15px; /* Espaciado dentro de las celdas del encabezado */
+    border-bottom: 3px solid #495057; /* Línea de separación en la parte inferior del encabezado */
+    text-align: left; /* Alineación del texto a la izquierda */
+    text-transform: uppercase; /* Texto en mayúsculas para mayor claridad */
+}
+
+@media screen and (max-width: 768px) {
+    .table th {
+        padding: 10px; /* Ajusta el espaciado para pantallas pequeñas */
+        font-size: 14px; /* Reduce el tamaño de fuente */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .table th {
+        padding: 8px; /* Ajusta el espaciado para pantallas muy pequeñas */
+        font-size: 12px; /* Reduce aún más el tamaño de fuente */
+    }
+}
+
+table {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 100%;
+    max-width: 700px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+table,
+th,
+td {
+    border: 1px solid rgb(7, 69, 20);
+}
+
+th,
+td {
+    padding: 5px;
+    text-align: left;
+    color: rgb(2, 0, 9);
+}
+
+th {
+    background-color: #7f9194;
+    color: rgb(251, 254, 255);
+    text-align: center;
+}
+
+.total-info {
+    margin-bottom: 20px;
+}
+
+.total-info span {
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr; /* Cambia a una sola columna en pantallas pequeñas */
+    }
+    .sidebar {
+        width: 100%;
+        height: auto;
+        box-shadow: none;
+    }
+    .sidebar button {
+        width: auto;
+        margin: 5px;
+    }
+    .content {
+        padding: 10px;
+    }
+}
+

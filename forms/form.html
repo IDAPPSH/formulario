@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../images/icorar.ico" type="image/x-icon">
+    <!-- Agregar iconos de redes sociales desde un CDN como FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles_display.css">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="scrip_sdk.js" defer></script>
+    <title>Formulario</title>
+    <style>
+        .social-media {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .social-media h2 {
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .social-media .icons a {
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .social-media .icons a i {
+            transition: transform 0.3s ease;
+        }
+
+        .social-media .icons a:hover i {
+            transform: scale(1.2);
+        }
+
+        /* Colores originales para los iconos de redes sociales */
+        .fab.fa-facebook {
+            color: #3b5998;
+            /* Color oficial de Facebook */
+        }
+
+        .fab.fa-instagram {
+            color: #E1306C;
+            /* Color oficial de Instagram */
+        }
+
+        .fab.fa-whatsapp {
+            color: #25D366;
+            /* Color oficial de WhatsApp */
+        }
+
+        .fab.fa-facebook-messenger {
+            color: #0078FF;
+            /* Color oficial de Messenger */
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-right: 15px;
+        }
+
+        .footer-text {
+            text-align: right;
+            margin-right: 10px;
+        }
+
+        .footer-text p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            line-height: 1.4em;
+        }
+
+        .footer-text p:first-child {
+            font-weight: bold;
+        }
+
+        .footer-logo {
+            margin-left: 10px;
+        }
+
+        .logo-img {
+            height: 40px;
+            /* Ajusta el tamaño del logo según necesites */
+            width: auto;
+        }
+
+        /* Alineación en pantallas pequeñas */
+        @media (max-width: 991px) {
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-text {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .footer-logo {
+                margin-left: 0;
+            }
+        }
+
+
+        footer p {
+            margin: 5px 0;
+            font-size: .9em;
+        }
+
+        footer a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright_text {
+            text-align: right;
+            font-size: 0.9em;
+            color: #bbb;
+            margin: 0;
+        }
+
+        .copyright_text a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .copyright_text a:hover {
+            color: #ddd;
+            text-decoration: underline;
+        }
+
+        /* Espaciado adecuado para dispositivos grandes */
+        @media (min-width: 992px) {
+            .copyright_text {
+                padding-right: 15px;
+            }
+        }
+
+        /* Estilo en pantallas más pequeñas */
+        @media (max-width: 991px) {
+            .copyright_text {
+                text-align: center;
+                padding: 10px 0;
+            }
+        }
+
+
+        footer {
+            background-color: rgb(11, 2, 2);
+            color: #fff;
+            padding: 0px 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .copyright_text {
+            text-align: right;
+            font-size: 0.9em;
+            color: #bbb;
+            margin: 0;
+            padding-right: 15px;
+            /* Espaciado a la derecha */
+        }
+
+        .copyright_text a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .copyright_text a:hover {
+            color: #ddd;
+            text-decoration: underline;
+        }
+
+        /* Asegura que el texto esté alineado a la derecha en pantallas grandes */
+        @media (min-width: 992px) {
+            .copyright_text {
+                text-align: right;
+                padding-right: 15px;
+            }
+        }
+
+        /* Alinea el texto al centro en pantallas más pequeñas */
+        @media (max-width: 991px) {
+            .copyright_text {
+                text-align: center;
+                padding: 10px 0;
+            }
+        }
+    </style>
+
+
+</head>
+
+
+<body>
+
+
+
+    <nav>
+        <ul>
+            <button id="btnRegresar" onclick="window.history.back()">Regresar</button>
+
+        </ul>
+    </nav>
+    <h1>Formulario de Captura de Datos</h1>
+
+    <form id="dataForm">
+        <!-- Selección de Tipo de Solicitud -->
+        <div class="section active" id="tipo_solicitud_section">
+            <section class="seleccion">
+                <h2>Seleccionar Tipo de Solicitud</h2>
+                <label for="tipo_solicitud">Tipo de Solicitud:</label>
+                <select id="tipo_solicitud" name="tipo_solicitud">
+                    <!-- <option value="" disabled selected>Seleccione una opción</option> -->
+                    <option value="primera_vez">Primera Vez</option>
+                    <option value="renovacion">Renovación</option>
+                </select>
+            </section>
+
+            <hr>
+            <hr>
+            <!-- Información Para Renovación -->
+            <div class="section_renovacion" style="display:none;">
+                <h2>Información Para Renovación</h2>
+                <br><br>
+                <label for="fecha_ultimavisita_usa">Fecha Última Visita a USA:</label>
+                <input type="date" id="fecha_ultimavisita_usa" name="fecha_ultimavisita_usa"
+                    placeholder="Selecciona la fecha">
+                <br><br>
+
+                <label for="duracion_en_usa">Duración en USA:</label>
+                <select id="duracion_en_usa" name="duracion_en_usa">
+                    <option value="días">Días</option>
+                    <option value="meses">Meses</option>
+                </select>
+                <br><br>
+
+                <label for="cantidad_dias_meses">Cantidad de Días o Meses:</label>
+                <input type="number" id="cantidad_dias_meses" name="cantidad_dias_meses" placeholder="Ingresa cantidad">
+                <br><br>
+
+                <div>
+                    <!-- Documentación adjunta -->
+                    <h2>Adjuntar Imagen de Visa</h2>
+                    <br><br>
+                    <h3>Imagen Frente</h3>
+                    <label for="imagen_frente">Visa imagen de Frente:</label>
+                    <input type="file" id="imagen_frente" name="imagen_frente" accept="image/*">
+                    <h3>Imagen Reverso</h3>
+                    <label for="imagen_reverso">Visa imagen de Reverso:</label>
+                    <input type="file" id="imagen_reverso" name="imagen_reverso" accept="image/*">
+                </div>
+            </div>
+            <br><br>
+            <hr>
+
+            <h2>Registro de Nombre Número Móvil y Correo</h2>
+            <br><br>
+
+            <!-- Campo de Nombre -->
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" required>
+
+            <br><br>
+            <!-- Campo de Número de Teléfono -->
+            <label for="numero_telefonico">Número Telefónico:</label>
+            <input type="text" id="numero_telefonico" name="numero_telefonico"
+                placeholder="Ingresa tu número telefónico">
+            <br><br>
+
+            <!-- Campo de Correo Electrónico -->
+            <label for="correo_electronico">Correo Electrónico:</label>
+            <input type="email" id="correo_electronico" name="correo_electronico"
+                placeholder="Ingresa tu correo electrónico">
+            <br><br>
+
+        </div>
+        <!-- Datos Personales -->
+        <div class="section">
+            <h2>Datos Personales</h2>
+            <br><br>
+            <label for="apellido_paterno">Apellido Paterno:</label>
+            <input type="text" id="apellido_paterno" name="apellido_paterno" placeholder="Escribe tu apellido paterno">
+            <br><br>
+            <label for="apellido_materno">Apellido Materno:</label>
+            <input type="text" id="apellido_materno" name="apellido_materno" placeholder="Escribe tu apellido materno">
+            <br><br>
+            <label for="nombres">Nombres:</label>
+            <input type="text" id="nombres" name="nombres" placeholder="Escribe tus nombres">
+            <br><br>
+
+            <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento"
+                placeholder="Selecciona tu fecha de nacimiento">
+            <br><br>
+
+
+            <label for="sexo">Sexo:</label>
+            <div class="checkbox-group">
+                <label><input type="radio" name="sexo" value="masculino"> Masculino</label>
+                <label><input type="radio" name="sexo" value="femenino"> Femenino</label>
+            </div>
+            <br><br>
+
+            <label for="lugar_nacimiento">Lugar de Nacimiento:</label>
+            <textarea id="lugar_nacimiento" name="lugar_nacimiento" rows="3"
+                placeholder="Escribe tu lugar de nacimiento"></textarea>
+            <br><br>
+            <br><br>
+        </div>
+
+        <!-- Estado Civil -->
+        <div class="section">
+            <h2>Estado Civil</h2>
+            <br><br>
+            <div class="checkbox-group">
+                <label for="casado"><input type="radio" id="casado" name="estado_civil" value="Casado"> Casado</label>
+                <label for="soltero"><input type="radio" id="soltero" name="estado_civil" value="Soltero">
+                    Soltero</label>
+                <label for="divorciado"><input type="radio" id="divorciado" name="estado_civil" value="Divorciado">
+                    Divorciado</label>
+                <label for="viudo"><input type="radio" id="viudo" name="estado_civil" value="Viudo"> Viudo</label>
+                <label for="separado"><input type="radio" id="separado" name="estado_civil" value="Separado">
+                    Separado</label>
+                <label for="union_libre"><input type="radio" id="union_libre" name="estado_civil" value="Unión Libre">
+                    Unión Libre</label>
+                <br><br>
+            </div>
+
+            <!-- Datos de Cónyuge -->
+            <div class="section_casado" style="display:none;">
+                <h2>Datos de Cónyuge</h2>
+                <br><br>
+                <label for="nombre_completo_conyuge">Nombre Completo del Cónyuge:</label>
+                <input type="text" id="nombre_completo_conyuge" name="nombre_completo_conyuge"
+                    placeholder="Escribe el nombre completo del cónyuge">
+                <br><br>
+                <label for="fecha_nacimiento_conyuge">Fecha de Nacimiento del Cónyuge:</label>
+                <input type="date" id="fecha_nacimiento_conyuge" name="fecha_nacimiento_conyuge"
+                    placeholder="Selecciona la fecha de nacimiento del cónyuge">
+                <br><br>
+                <label for="lugar_nacimiento_conyuge">Lugar de Nacimiento del Cónyuge:</label>
+                <textarea id="lugar_nacimiento_conyuge" name="lugar_nacimiento_conyuge" rows="3"
+                    placeholder="Escribe el lugar de nacimiento del cónyuge"></textarea>
+                <br><br>
+            </div>
+
+
+            <div class="section_divorciado" style="display:none;">
+                <h2>Información del Matrimonio Anterior</h2>
+                <br><br>
+                <label for="nombre_completo_expareja">Nombre Completo de la Expareja:</label>
+                <input type="text" id="nombre_completo_expareja" name="nombre_completo_expareja"
+                    placeholder="Escriba el nombre completo de la expareja">
+                <br><br>
+                <label for="fecha_union_expareja">Fecha de la Unión Matrimonial con la Expareja:</label>
+                <input type="date" id="fecha_union_expareja" name="fecha_union_expareja">
+                <br><br>
+                <label for="lugar_nacimiento_expareja">Lugar de Nacimiento de la Expareja:</label>
+                <input type="text" id="lugar_nacimiento_expareja" name="lugar_nacimiento_expareja"
+                    placeholder="Escriba el lugar de nacimiento de la expareja">
+                <br><br>
+                <label for="motivo_separacion_expareja">Motivo de la Separación:</label>
+                <textarea id="motivo_separacion_expareja" name="motivo_separacion_expareja" rows="3"
+                    placeholder="Describa brevemente el motivo de la separación"></textarea>
+                <br><br>
+                <label for="fecha_divorcio_expareja">Fecha de Disolución del Matrimonio:</label>
+                <input type="date" id="fecha_divorcio_expareja" name="fecha_divorcio_expareja">
+                <br><br>
+                <label for="pais_termino_matrimonio">País de Disolución del Matrimonio:</label>
+                <input type="text" id="pais_termino_matrimonio" name="pais_termino_matrimonio"
+                    placeholder="Escriba el país donde se disolvió el matrimonio">
+                <br><br>
+            </div>
+
+            <!-- Datos de Cónyuge Unión Libre -->
+            <div class="section_union_libre" style="display:none;">
+                <h2>Datos de Cónyuge Union Libre</h2>
+                <br><br>
+                <label for="nombre_completo_conyuge_union_libre">Nombre Completo del Cónyuge Unión Libre:</label>
+                <input type="text" id="nombre_completo_conyuge_union_libre" name="nombre_completo_conyuge_union_libre"
+                    placeholder="Escribe el nombre completo del cónyuge">
+                <br><br>
+                <label for="fecha_nacimiento_conyuge_union_libre">Fecha de Nacimiento del Cónyuge Unión Libre:</label>
+                <input type="date" id="fecha_nacimiento_conyuge_union_libre" name="fecha_nacimiento_conyuge_union_libre"
+                    placeholder="Selecciona la fecha de nacimiento del cónyuge">
+                <br><br>
+                <label for="lugar_nacimiento_conyuge_union_libre">Lugar de Nacimiento del Cónyuge Unión Libre:</label>
+                <textarea id="lugar_nacimiento_conyuge_union_libre" name="lugar_nacimiento_conyuge_union_libre" rows="3"
+                    placeholder="Escribe el lugar de nacimiento del cónyuge"></textarea>
+                <br><br>
+            </div>
+
+        </div>
+        <!-- Sección de Datos Académicos -->
+        <div class="section">
+            <h2>Datos Académicos</h2>
+            <br><br>
+            <!-- Selección de Tipo de Escolaridad -->
+            <h3>Seleccionar Escolaridad</h3>
+            <label for="escolaridad">Escolaridad:</label>
+            <select id="escolaridad" name="escolaridad">
+                <option value="" disabled selected>Seleccione una opción</option>
+                <option value="primaria">Primaria</option>
+                <option value="secundaria">Secundaria</option>
+                <option value="preparatoria">Preparatoria</option>
+                <option value="universidad">Universidad</option>
+                <option value="posgrado">Posgrado</option>
+            </select>
+            <br><br>
+
+            <!-- Campos adicionales que se mostrarán al seleccionar una opción -->
+            <div id="campos_escolaridad" class="section_oculta">
+                <label for="nombre_escuela">Nombre de Escuela:</label>
+                <input type="text" id="nombre_escuela" name="nombre_escuela"
+                    placeholder="Escribe el nombre de la escuela">
+                <br><br>
+
+                <label for="direccion_escuela">Dirección de Escuela:</label>
+                <textarea id="direccion_escuela" name="direccion_escuela" rows="3"
+                    placeholder="Escribe la dirección de la escuela"></textarea>
+                <br><br>
+
+                <label for="fecha_inicio_escuela">Fecha Inicio Escuela:</label>
+                <input type="date" id="fecha_inicio_escuela" name="fecha_inicio_escuela">
+                <br><br>
+
+                <label for="fecha_final_escuela">Fecha Final Escuela:</label>
+                <input type="date" id="fecha_final_escuela" name="fecha_final_escuela">
+                <br><br>
+
+
+
+            </div>
+        </div>
+
+
+        <!-- Sección de Empleo Actual -->
+        <div class="section">
+            <h2>Empleo Actual</h2>
+            <br><br>
+            <label for="ocupacion_actual_empleo">Ocupación Actual:</label>
+            <select id="ocupacion_actual_empleo" name="ocupacion_actual_empleo">
+                <option value="" disabled selected>Seleccione una opción</option>
+                <option value="empleado">Empleado</option>
+                <option value="freelance">Freelance</option>
+                <option value="estudiante">Estudiante</option>
+                <option value="ama_de_casa">Ama de Casa</option>
+                <option value="jubilado">Jubilado</option>
+                <option value="autonomo">Autónomo</option>
+                <option value="desempleado">Desempleado</option>
+                <option value="otro">Otro</option>
+            </select>
+            <br><br>
+
+            <!-- Campos adicionales que se mostrarán al seleccionar una opción -->
+            <div id="campos_empleo_actual" class="section_oculta">
+                <label for="nombre_empresa_actual">Nombre de Empresa Actual:</label>
+                <input type="text" id="nombre_empresa_actual" name="nombre_empresa_actual"
+                    placeholder="Escribe el nombre de la empresa">
+                <br><br>
+
+                <label for="domicilio_empresas_actual">Domicilio de Empresa Actual:</label>
+                <textarea id="domicilio_empresas_actual" name="domicilio_empresas_actual" rows="3"
+                    placeholder="Escribe el domicilio de la empresa"></textarea>
+                <br><br>
+
+                <label for="fecha_inicio_empleo_actual">Fecha Inicio Empleo Actual:</label>
+                <input type="date" id="fecha_inicio_empleo_actual" name="fecha_inicio_empleo_actual">
+                <br><br>
+
+                <label for="telefono_empres_actual">Teléfono Empresa Actual:</label>
+                <input type="text" id="telefono_empres_actual" name="telefono_empres_actual"
+                    placeholder="Escribe el teléfono de la empresa">
+                <br><br>
+
+                <label for="salario_ensual_empleo_actual">Salario Mensual:</label>
+                <input type="number" id="salario_ensual_empleo_actual" name="salario_ensual_empleo_actual"
+                    placeholder="Escribe tu salario mensual">
+                <br><br>
+
+                <label for="descripcion_actividades_a_su_cargo">Descripción de Actividades a su Cargo:</label>
+                <textarea id="descripcion_actividades_a_su_cargo" name="descripcion_actividades_a_su_cargo" rows="3"
+                    placeholder="Escribe las actividades que realizas"></textarea>
+                <br><br>
+            </div>
+        </div>
+
+        <!-- Empleo Anterior -->
+        <div class="section">
+            <h2>Empleo Anterior</h2>
+            <br><br>
+            <label for="nombre_empresa_anterior">Nombre de Empresa Anterior:</label>
+            <input type="text" id="nombre_empresa_anterior" name="nombre_empresa_anterior"
+                placeholder="Escribe el nombre de empresa anterior">
+            <br><br>
+
+            <label for="domicilio_empresas_anterior">Domicilio de Empresa Anterior:</label>
+            <textarea id="domicilio_empresas_anterior" name="domicilio_empresas_anterior" rows="3"
+                placeholder="Escribe el domicilio de la empresa anterior"></textarea>
+            <br><br>
+
+            <label for="fecha_inicio_empleo_anterior">Fecha Inicio Empleo Anterior:</label>
+            <input type="date" id="fecha_inicio_empleo_anterior" name="fecha_inicio_empleo_anterior">
+            <br><br>
+
+            <label for="fecha_fin_empleo_anterior">Fecha Fin Empleo Anterior:</label>
+            <input type="date" id="fecha_fin_empleo_anterior" name="fecha_fin_empleo_anterior">
+            <br><br>
+
+
+            <label for="descripcion_actividades_empleo_anterior">Descripción de Actividades a su Cargo Empleo
+                Anterior:</label>
+            <textarea id="descripcion_actividades_empleo_anterior" name="descripcion_actividades_empleo_anterior"
+                rows="3" placeholder="Escribe las actividades que realizabas en tu puesto anterior"></textarea>
+            <br><br>
+
+            <label for="nombre_jefe_inmediato">Nombre Jefe Inmediato:</label>
+            <input type="text" id="nombre_jefe_inmediato" name="nombre_jefe_inmediato"
+                placeholder="Escribe el nombre de jefe inmediato anterior">
+            <br><br>
+
+            <label for="telefono_jefe_inmediato">Teléfono de Contacto:</label>
+            <input type="text" id="telefono_jefe_inmediato" name="telefono_jefe_inmediato"
+                placeholder="Escribe el número de teléfono de contacto">
+            <br><br>
+        </div>
+        <!-- Empleo Anterior -->
+        <div class="section">
+            <h2>Datos De los Padres</h2>
+            <br><br>
+
+            <label for="nombre_completo_padre">Nombre Completo del Padre:</label>
+            <input type="text" id="nombre_completo_padre" name="nombre_completo_padre"
+                placeholder="Escribe el nombre completo Padre">
+            <br><br>
+
+            <label for="fecha_nacimiento_padre">Fecha de Nacimiento del Padre:</label>
+            <input type="date" id="fecha_nacimiento_padre" name="fecha_nacimiento_padre">
+            <br><br>
+
+            <label for="padre_vive_eu">Vive en Estados Unidos?:</label>
+            <div class="checkbox-group">
+                <label><input type="radio" name="padre_vive_estados_unidos" value="si"> Si:</label>
+                <label><input type="radio" name="padre_vive_estados_unidos" value="no"> No:</label>
+            </div>
+            <br><br>
+            <br><br>
+
+
+
+            <label for="nombre_completo_madre">Nombre Completo de la Madre:</label>
+            <input type="text" id="nombre_completo_madre" name="nombre_completo_madre"
+                placeholder="Escribe el nombre completo Madre">
+            <br><br>
+
+            <label for="fecha_nacimiento_madre">Fecha de Nacimiento de la Madre:</label>
+            <input type="date" id="fecha_nacimiento_madre" name="fecha_nacimiento_madre">
+            <br><br>
+
+            <label for="madre_vive_estados_unidos">Vive en Estados Unidos?:</label>
+            <div class="checkbox-group">
+                <label><input type="radio" name="madre_vive_estados_unidos" value="si"> Si</label>
+                <label><input type="radio" name="madre_vive_estados_unidos" value="no"> No</label>
+            </div>
+            <br><br>
+
+        </div>
+        <!-- Redes Sociales -->
+        <div class="section">
+            <h2>Redes Sociales</h2>
+            <br><br>
+
+            <label for="facebook">Facebook:</label>
+            <input type="text" id="facebook" name="facebook" placeholder="Ecribe o coloca enlace de Facebook">
+            <br><br>
+
+
+            <label for="instagram">Instagram:</label>
+            <input type="text" id="instagram" name="instagram" placeholder="Ecribe o coloca enlace de Instagram">
+            <br><br>
+
+
+
+        </div>
+
+        <!-- Información Adicional -->
+        <div class="section">
+            <h2>Información Adicional</h2>
+            <br><br>
+
+            <div>
+                <label for="tiene_familiares_estados_unidos">¿Tiene Familiares en Estados Unidos?:</label>
+                <select id="tiene_familiares_estados_unidos" name="tiene_familiares_estados_unidos"
+                    onchange="toggleSection('tiene_familiares_estados_unidos', 'si', 'section_tiene_familiares_estados_unidos_si')">
+                    <option value="" disabled selected>Seleccione una opción</option>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                    <option value="no_estoy_seguro">No Estoy Seguro</option>
+                </select>
+                <br><br>
+
+                <div class="section_tiene_familiares_estados_unidos_si" style="display: none;">
+                    <label for="nombre_completo_familiar_cercano">Nombre Completo de Familiar Cercano:</label>
+                    <input type="text" id="nombre_completo_familiar_cercano" name="nombre_completo_familiar_cercano"
+                        placeholder="Escribe el nombre completo del familiar cercano">
+                    <br><br>
+
+                    <label for="numero_telefonico_familiar_cercano">Número de Teléfono de Familiar Cercano:</label>
+                    <input type="tel" id="numero_telefonico_familiar_cercano" name="numero_telefonico_familiar_cercano"
+                        placeholder="Ingresa el número de teléfono del familiar cercano">
+                    <br><br>
+
+                    <label for="domicilio_familiar_cercano">Domicilio de Familiar Cercano:</label>
+                    <textarea id="domicilio_familiar_cercano" name="domicilio_familiar_cercano" rows="3"
+                        placeholder="Escribe el domicilio del familiar cercano"></textarea>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+
+        <!-- Información Adicional -->
+        <div class="section">
+            <h2>Información Adicional</h2>
+            <br><br>
+
+            <div>
+                <label for="tramitaron_visa_antes">¿Tramitaron la visa antes?:</label>
+                <select id="tramitaron_visa_antes" name="tramitaron_visa_antes"
+                    onchange="toggleSection('tramitaron_visa_antes', 'si', 'section_tramitaron_visa_antes_si')">
+                    <option value="" disabled selected>Seleccione una opción</option>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                    <option value="no_estoy_seguro">No Estoy Seguro</option>
+                </select>
+                <br><br>
+
+                <div class="section_tramitaron_visa_antes_si" style="display: none;">
+                    <label for="redacta_procedimiento_realizado">Redacta el Procedimiento Realizado:</label>
+                    <textarea id="redacta_procedimiento_realizado" name="redacta_procedimiento_realizado" rows="3"
+                        placeholder="Describe el procedimiento que realizaste para tramitar la visa"></textarea>
+                </div>
+                <br><br>
+            </div>
+            <br><br>
+        </div>
+
+        <!-- Información Adicional -->
+        <div class="section">
+            <h2>Información Adicional</h2>
+            <br><br>
+            <div>
+                <label for="han_visitado_estados_unidos">¿Han visitado Estados Unidos?:</label>
+                <select id="han_visitado_estados_unidos" name="han_visitado_estados_unidos"
+                    onchange="toggleSection('han_visitado_estados_unidos', 'si', 'han_visitado_estados_unidos_si')">
+                    <option value="" disabled selected>Seleccione una opción</option>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                    <option value="no_estoy_seguro">No Estoy Seguro</option>
+                </select>
+                <br><br>
+
+                <div class="han_visitado_estados_unidos_si" style="display: none;">
+                    <label for="fecha_visita_estados_unidos">Fecha de Visita en Estados Unidos:</label>
+                    <input type="date" id="fecha_visita_estados_unidos" name="fecha_visita_estados_unidos"
+                        placeholder="Selecciona la fecha de tu visita">
+                </div>
+                <br><br>
+            </div>
+            <br><br>
+        </div>
+
+        <!-- Información Adicional -->
+        <div class="section">
+            <h2>Información Adicional</h2>
+            <br><br>
+            <div>
+                <label for="han_viajado_extranjero_últimos_cinco_años">¿Han viajado al extranjero en los últimos cinco
+                    años?:</label>
+                <div class="checkbox-group"
+                    onchange="toggleSectionRadio('han_viajado_extranjero_últimos_cinco_años', 'si', 'han_viajado_extranjero_últimos_cinco_años_si')">
+                    <label><input type="radio" name="han_viajado_extranjero_últimos_cinco_años" value="si">Sí</label>
+                    <label><input type="radio" name="han_viajado_extranjero_últimos_cinco_años" value="no">No</label>
+                    <label><input type="radio" name="han_viajado_extranjero_últimos_cinco_años"
+                            value="no_estoy_seguro">No Estoy Seguro</label>
+                </div>
+                <br><br>
+                <div class="han_viajado_extranjero_últimos_cinco_años_si" style="display: none;">
+                    <label for="pais">País:</label>
+                    <input type="text" id="pais" name="pais" placeholder="Escribe o selecciona un país"
+                        autocomplete="off" oninput="filterCountries()" onfocus="showAllCountries()">
+                    <div id="autocomplete-suggestions" class="autocomplete-suggestions"></div>
+                    <br><br>
+                </div>
+            </div>
+            <br><br>
+
+            <div>
+                <label for="domina_ingles">¿Domina el inglés?:</label>
+                <div class="radio-group" onchange="toggleSectionRadio('domina_ingles', 'si', 'domina_ingles_si')">
+                    <label><input type="radio" id="domina_ingles_si" name="domina_ingles" value="si">Sí</label>
+                    <label><input type="radio" id="domina_ingles_no" name="domina_ingles" value="no">No</label>
+                </div>
+                <div class="domina_ingles_si" style="display: none;">
+                    <!-- Aquí puedes agregar campos adicionales si es necesario -->
+                </div>
+            </div>
+            <br><br>
+        </div>
+
+
+
+
+        <!-- Documentación adjunta -->
+        <div class="section" id="documentacion_section">
+            <h2>Documentación adjunta</h2>
+            <br><br>
+
+            <label for="acta_nacimiento">Adjuntar Acta de Nacimiento:</label>
+            <input type="file" id="acta_nacimiento" name="acta_nacimiento" accept="image/*"
+                placeholder="Selecciona el archivo del acta de nacimiento">
+            <br><br>
+
+            <label for="pasaporte">Adjuntar Pasaporte:</label>
+            <input type="file" id="pasaporte" name="pasaporte" accept="image/*"
+                placeholder="Selecciona el archivo del pasaporte">
+            <br><br>
+
+            <label for="ine">Adjuntar INE:</label>
+            <input type="file" id="ine" name="ine" accept="image/*" placeholder="Selecciona el archivo del INE">
+            <br><br>
+
+            <label for="archivo">Sube un archivo (".pdf,.doc,.docx,.xls,.xlsx"):</label>
+            <input type="file" id="archivo" name="archivo" accept=".pdf,.doc,.docx,.xls,.xlsx"
+                placeholder="Selecciona un archivo PDF, DOC, DOCX, XLS o XLSX">
+            <br><br>
+
+            <label for="check">¿Aceptas los términos?</label>
+            <input type="checkbox" id="check" name="check" value="true"> Sí
+            <br><br>
+
+            <!-- Campo de Fecha y Hora -->
+            <!-- <label for="fecha_hora">Fecha y Hora de Envío:</label>
+    <input type="text" id="fecha_hora" name="fecha_hora" readonly>
+    <br><br> -->
+    <button class="submit" type="submit">Enviar</button>
+    <br><br>
+    <!-- Campo de Fecha y Hora -->
+    <!-- <label for="fecha_hora">Fecha y Hora de Envío:</label> -->
+    <input type="text" id="fecha_hora" name="fecha_hora" readonly>
+    <div>
+        </div>
+        </div>
+        <div class="buttons">
+
+            <button type="button" id="prev" style="display:none;">Atrás</button>
+            <button type="button" id="next">Siguiente</button>
+            <button type="submit" id="submit" style="display:none;">Enviar</button>
+        </div>
+
+
+    </form>
+
+
+
+    <footer>
+        <section class="social-media">
+            <h2>Síguenos en nuestras redes sociales</h2>
+            <div class="icons">
+                  
+                    <img src="../images/client_ico_256.ico" alt="Logo" class="logo-img">
+              
+                <a href="https://www.facebook.com/profile.php?id=61561523894253&mibextid=ZbWKwL" target="_blank"><i
+                        class="fab fa-facebook fa-2x"></i></a>
+
+                
+                <!-- WhatsApp -->
+                <a href="https://wa.me/7772095614" target="_blank" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp fa-2x"></i>
+                </a>
+
+                <!-- Messenger -->
+                <a href="https://www.messenger.com/t/USERNAME" target="_blank" aria-label="Messenger">
+                    <i class="fab fa-facebook-messenger fa-2x"></i>
+                </a>
+
+            </div>
+            <p>&copy; 2024 Mi Página Web. Todos los derechos reservados.</p>
+            <div class="col-lg-4 col-md-12">
+                <div class="copyright_text text-right">
+                    <p>Desarrollado por:</p>
+                    <p>Raul A. Alameda Ruelas</p>
+                    <a href="https://idappsh.sites/" target="_blank">IDAPPSH
+                        "Innovation and Development of Hybrid Systems and Applications" 2023-2024</a>
+                <div class="footer-logo">
+                    <img src="../images/icorar.ico" alt="Logo" class="logo-img">
+              
+                </div>
+
+            </div>
+        </section>
+
+
+    </footer>
+
+        
+
+
+
+
+        <!-- Agregar el SDK de Firebase -->
+        <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js"></script>
+        <script src="scrip_seccion.js"></script>
+        <script src="scripts_elemt.js"></script>
+
+</body>
+
+</html>

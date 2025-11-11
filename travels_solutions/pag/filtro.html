@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style_filtro.css"> <!-- Verifica la ruta del archivo CSS -->
+     <script type="module" src="js/scrip_filtro_admin.js" defer></script>
+    <title>Administración de Formularios</title>
+
+</head>
+
+<body>
+    <div class="content">
+
+        <header class="header">
+            <div class="header-left">
+                <img src="../images/client_ico_256.ico" alt="Logotipo" class="logo">
+                <h1 class="cabeza">Administración de Formularios</h1>
+            </div>
+
+            <div class="header-right">
+                <p id="datetime"></p>
+            </div>
+        </header>
+
+        <!-- ------------BUSCADOR-------------------- -->
+        <aside class="sidebar">
+
+            <button class="btn-sidebar" onclick="window.location.href='../index.html'">
+                <i class="fa-solid fa-house"></i><span>Inicio</span>
+            </button>
+
+
+
+            <button class="btn-sidebar"><i class="fa-solid fa-file-alt"></i><span>Docu</span></button>
+            <button class="btn-sidebar"><i class="fa-solid fa-users"></i><span>Clie</span></button>
+
+            <!-- Botón de Configuración con menú desplegable -->
+            <button class="btn-sidebar" id="configButton">
+                <i class="fa-solid fa-cog"></i><span>Conf</span>
+            </button>
+            <ul id="configMenu" class="dropdown-menu" style="display: none;">
+                <li class="dropdown-item" data-action="explorar">1. EXPLORAR</li>
+                <li class="dropdown-item" data-action="editar">2. EDITAR</li>
+                <li class="dropdown-item" data-action="eliminar">3. ELIMINAR TODO</li>
+                <li class="dropdown-item" data-action="descargar">4. DESCARGAR</li>
+                <li class="dropdown-item" data-action="otras">5. OTRAS</li>
+            </ul>
+
+            <button class="btn-filter">
+                <i class="fa-solid fa-magnifying-glass"></i><!-- -WARSONE- -->
+            </button>
+        </aside>
+
+        <nav>
+            <button id="btnRegresar" onclick="window.history.back()">Regresar</button>
+
+            <p id="totalRecords">Total de Registros: 0</p>
+            <h2>Filtrar Datos</h2>
+
+            <section class="table-section">
+                <label for="tipoSolicitudFilter">Tipo de Solicitud:</label>
+                <select id="tipoSolicitudFilter"></select>
+            </section>
+        </nav>
+
+        <main>
+            <section class="filter-section">
+                <label for="numeroTelefonicoFilter">Número Telefónico:</label>
+                <input type="text" id="numeroTelefonicoFilter" placeholder="Ingrese número telefónico">
+
+                <label for="correoElectronicoFilter">Correo Electrónico:</label>
+                <input type="email" id="correoElectronicoFilter" placeholder="Ingrese correo electrónico">
+            </section>
+
+            <p id="filteredRecords">Registros Filtrados: 0</p>
+            <table id="dataTable">
+                <thead>
+                    <tr>
+                        <th>Tipo de Solicitud</th>
+                        <th>Número Telefónico</th>
+                        <th>Correo Electrónico</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <hr>
+
+            <section id="details" class="details-section" style="display: none;">
+                <div class="action-buttons">
+                    <button id="backButton" class="back-button">Regresar</button>
+                    <button id="deleteButton">Eliminar</button>
+                    <button id="downloadButton">Descargar</button>
+                </div>
+                <h2>Detalles del Registro</h2>
+                <form id="detailsForm"></form>
+            </section>
+        </main>
+
+    </div>
+
+    <footer>
+        <header>
+            <div class="customer-support">
+                <i class="fa-solid fa-headset"></i>
+                <div class="content-customer-support">
+                    <span class="text">Soporte al cliente</span>
+                    <span class="number">664-375-0913</span>
+                    <a href="http://www.idappsh.com" class="link">www.idappsh.com</a>
+                    <span class="link">Innovation and development of hybrid systems</span>
+                </div>
+            </div>
+        </header>
+    </footer>
+
+   
+    <script type="module" src="../js/scrip_filtro_action.js"></script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<!-- ]<!DOCTYPE html> -->
+<!-- <html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">  Verifica la ruta del archivo CSS 
+    <title>Administración de Formularios</title>
+</head>
+
+<body>
+
+    <div class="content">
+        <header>
+            
+            <p id="totalRecords">Total de Registros: 0</p> 
+
+            <h1 class="cabeza">Administración de Formularios</h1>
+
+
+        </header>
+
+        <aside class="sidebar">
+
+            <a href="#"><i class="fa-solid fa-house"></i><span>Inicio</span></a>
+            <a href="#"><i class="fa-solid fa-users"></i><span>Clientes</span></a>
+            <a href="#"><i class="fa-solid fa-file-alt"></i><span>Documentos</span></a>
+            <a href="#"><i class="fa-solid fa-cog"></i><span>Configuración</span></a>
+            <hr>
+            <button class="btn-filter">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+
+        </aside>
+        
+
+         <nav>
+            <h2>Filtrar Datos</h2>
+             El modal se agregará aquí.." />
+        </nav>
+
+        <main>
+
+            <form class="search-form">
+                <input type="search" placeholder="Buscar.." />
+                <button class="btn-search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+
+
+
+
+            <hr>
+            <section class="table-section">
+
+
+                <table id="dataTable">
+                    <p id="totalRecords">Total de Registros: 0</p>
+                    <thead>
+                        <tr>
+                            <th>Tipo de Solicitud</th>
+                            <th>Número Telefónico</th>
+                            <th>Correo Electrónico</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody></tbody>
+                </table>
+            </section>
+
+            <section id="details" class="details-section" style="display: none;">
+                <div class="action-buttons">
+                    <button id="backButton" class="back-button">Regresar</button>
+                    <button id="deleteButton">Eliminar</button>
+                    <button id="downloadButton">Descargar</button>
+                </div>
+                <h2>Detalles del Registro</h2>
+                <form id="detailsForm"></form>
+            </section>
+
+             Modal -
+            <div id="filterModal" class="modal">
+
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <section class="filter-section">
+                        <label for="tipoSolicitudFilter">Tipo de Solicitud:</label>
+                        <select id="tipoSolicitudFilter"></select>
+
+
+                        <label for="nombres">Nombres:</label>
+                        <input type="text" id="nombresFilter" placeholder="Ingresa Nombre">
+                        <label for="numeroTelefonicoFilter">Número Telefónico:</label>
+                        <input type="text" id="numeroTelefonicoFilter" placeholder="Ingrese número telefónico">
+                        <label for="correoElectronicoFilter">Correo Electrónico:</label>
+                        <input type="email" id="correoElectronicoFilter" placeholder="Ingrese correo electrónico">
+                    </section>
+                    <section>
+                         Contadores -
+                        <div class="record-info">
+
+                            <p id="filteredRecords">Registros Filtrados: 0</p>
+                        </div>
+                </div>
+        </main>
+
+
+    </div>
+
+
+
+
+
+    <footer>
+        <header>
+            <div class="customer-support">
+                <i class="fa-solid fa-headset"></i>
+                <div class="content-customer-support">
+                    <span class="text">Soporte al cliente</span>
+                    <span class="number">664-375-0913</span>
+                    <a href="http://www.idappsh.com" class="link">www.idappsh.com</a>
+                    <span class="link">Innovation and development of hybrid systems</span>
+                </div>
+            </div>
+        </header>
+    </footer>
+    </div>
+
+    <script type="module" src="admin.js" defer></script>
+</body>
+
+</html> -->
